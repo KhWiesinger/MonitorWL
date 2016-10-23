@@ -26,7 +26,7 @@ def replaceUmlaut(s):
 def main(argv):
 	
 	apikey = False
-	apiurl = 'https://www.wienerlinien.at/ogd_realtime/monitor?rbl={rbl}&sender={apikey}'
+	apiurl = 'http://www.wienerlinien.at/ogd_realtime/monitor?rbl=794&activateTrafficInfo=stoerungkurz&a ctivateTrafficInfo=stoerunglang&activateTrafficInfo=aufzugsinfo&sender=WTjqDjOn7pxvLiye'
 	st = 10
 
 	try:                                
@@ -67,7 +67,7 @@ def main(argv):
 	x = 1	
 	while True:
 		for rbl in rbls:
-			url = apiurl.replace('{apikey}', apikey).replace('{rbl}', rbl.id)
+			url = apiurl.replace('WTjqDjOn7pxvLiye', apikey).replace('794', rbl.id)
 			r = requests.get(url)
 			if r.status_code == 200:
 				try:
@@ -101,5 +101,3 @@ def usage():
 
 if __name__ == "__main__":
 	main(sys.argv[1:])
-  
-WTjqDjOn7pxvLiye
